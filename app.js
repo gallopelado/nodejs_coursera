@@ -1,14 +1,10 @@
-const http = require('http');
+const express = require('express');
+const app = express()
 
-const hostname = '127.0.0.1';
-const port = 9999;
+app.get('/', (req, res) =>{
+    res.send('Hola mundo desde express!');
+});
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-type', 'text/plain');
-    res.end(`Hola mundo`);
-})
-
-server.listen(port, hostname, () => {
-    console.log(`El servidor esta funcionando en ${hostname} y el puerto ${port}`);
-})
+app.listen(9999, () => {
+    console.log('Aplicación de ejemplo, escuchando el puerto 9999!');
+});
